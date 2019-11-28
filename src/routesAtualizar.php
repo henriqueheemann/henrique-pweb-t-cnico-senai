@@ -31,7 +31,7 @@ return function (App $app) {
         $marca = $_POST['marca'];
         $ano = $_POST['ano'];
 
-        $resultSet = $conexao->query("UPDATE carro VALUES ('$id' '$modelo', '$marca', '$ano')");
+        $resultSet = $conexao->query("UPDATE carro VALUES ('$modelo', '$marca', '$ano')");
                  
         return $response->withRedirect('/atualizar/');
     });
