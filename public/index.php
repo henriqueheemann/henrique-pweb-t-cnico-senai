@@ -32,7 +32,13 @@ $routes($app);
 $routes = require __DIR__ . '/../src/routesTabela.php';
 $routes($app);
 
-$routes = require __DIR__ . '/../src/routesAtualizar.php';
+$routes = require __DIR__ . '/../src/routesEditar.php';
+$routes($app);
+
+$routes = require __DIR__ . '/../src/routesExcluir.php';
+$routes($app);
+
+$routes = require __DIR__ . '/../src/routesCadastroProprietario.php';
 $routes($app);
 
 // Run app

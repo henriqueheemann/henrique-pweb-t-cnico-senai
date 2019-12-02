@@ -10,7 +10,13 @@ return function (App $app) {
     $app->get('/cadastro/', function (Request $request, Response $response, array $args) use ($container) {
 
         // Sample log message
-        $container->get('logger')->info("Slim-Skeleton '/inicio/' route");
+        $container->get('logger')->info("Slim-Skeleton '/cadastro/' route");
+
+        $conexao = $container->get('pdo');
+
+        $resultSet = $conexao->query('SELECT * FROM proprietario')->fetchAll();
+
+        $args['proprietarios'] = $resultSet;
 
         // Render index view
         return $container->get('renderer')->render($response, 'cadastro.phtml', $args);
@@ -36,4 +42,5 @@ return function (App $app) {
 
         return $response->withRedirect('/cadastro/');
     });
+
 };

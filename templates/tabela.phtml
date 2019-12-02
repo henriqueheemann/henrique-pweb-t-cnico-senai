@@ -1,47 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Slim 3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabela</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
 </head>
 
 <body>
     <form action="/tabela/" method="get">
         <div class="container">
-            <div class="col-12">
-                <div class="row">
+            <table class="table table-dark mt-5 mb-5">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Modelo</th>
+                        <th class="text-center" scope="col">Marca</th>
+                        <th class="text-center" scope="col">Ano</th>
+                        <th class="text-center" scope="col">Ação</th>
+                        <th class="text-center" scope="col">Ação</th>
+                        <th class="text-center" scope="col">Proprietário</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
                     <?php
-                    foreach ($textos as $key => $texto) {
-                        echo '<table class="table">';
-                        echo '<thead>';
+                    foreach ($carros as $key => $carro) {
                         echo '<tr>';
-                        echo '<th scope="col">#</th>';
-                        echo '<th scope="col">Modelo</th>';
-                        echo '<th scope="col">Marca</th>';
-                        echo '<th scope="col">Ano</th>';
+                            echo '<th class="text-center" scope="row">' . $carro['id'] . '</th>';
+                            echo '<td class="text-center">' . $carro['modelo'] . '</td>';
+                            echo '<td class="text-center">' . $carro['marca'] . '</td>';
+                            echo '<td class="text-center">' . $carro['ano'] . '</td>';
+                            echo '<td class="text-center"><a href="/editar/' . $carro['id'] . '" class="btn btn-primary">Editar</a></td>';
+                            echo '<td class="text-center"><a href="/excluir/' . $carro['id'] . '" class="btn btn-primary">Excluir</a></td>';
+                            echo '<td class="text-center">' . $carro['nomeProprietario'] . '</td>';
                         echo '</tr>';
-                        echo '</thead>';
-                        echo '<tbody>';
-                        echo '<tr>';
-                        echo '<th scope="row">' . $texto['id'] . '</th>';
-                        echo '<td>' . $texto['modelo'] . '</td>';
-                        echo '<td>' . $texto['marca'] . '</td>';
-                        echo '<td>' . $texto['ano'] . '</td>';
-                        echo '</tr>';
-                        echo '</tbody>';
-                        echo '</table>';
                     }
                     ?>
-                </div>
-            </div>
-            <div class="text-center m-3">
-                <a href="/atualizar/" class="btn btn-primary">Atualizar</a>
-            </div>
-            <div class="text-center m-3">
-                <a href="/cadastro/" class="btn btn-primary">Cadastro</a>
-            </div>
+                </tbody>
+            </table>
         </div>
     </form>
 </body>

@@ -5,32 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Atualizar</title>
+    <title>Editar</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../cadastro.css">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
 </head>
 
 <body>
-    <form action="/atualizar/" method="post">
         <div class="container">
             <div class="col-12">
                 <div class="text-center m-5">
-                    <h1>Atualize o item</h1>
-                </div>
-                <div class="row">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text titulo">ID</span>
-                        </div>
-                        <input type="number" name="id" placeholder="ID" class="form-control">
-                    </div>
+                <?php
+                    echo '<h1>Atualize o item ' . $id . '</h1>';
+                    echo '<form action="/editarCarro/' . $id . '" method="post">';
+                ?>
                 </div>
                 <div class="row">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text titulo">Nome do modelo</span>
                         </div>
-                        <input type="text" name="modelo" placeholder="Modelo" class="form-control">
+                        <input type="text" name="modelo" placeholder="Modelo" class="form-control" required>
                     </div>
                 </div>
                 <div class="row">
@@ -38,7 +33,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text titulo">Marca</span>
                         </div>
-                        <input type="text" name="marca" placeholder="Marca" class="form-control">
+                        <input type="text" name="marca" placeholder="Marca" class="form-control" required>
                     </div>
                 </div>
                 <div class="row">
@@ -46,18 +41,22 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text titulo">Ano</span>
                         </div>
-                        <input type="number" name="ano" placeholder="Ano" class="form-control">
+                        <input type="number" name="ano" placeholder="Ano" class="form-control" required>
                     </div>
                 </div>
             </div>
-            <div class="text-center mb-3">
-                <button class="btn btn-primary" type="submit">Atualizar</button>
-            </div>
-            <div class="text-center mb-3">
-                <a href="/cadastro/" class="btn btn-primary">Cadastro</a>
-            </div>
-            <div class="text-center mb-3">
-                <a href="/tabela/" class="btn btn-primary">Tabela</a>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm text-center">
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                    </div>
+                    <div class="col-sm text-center">
+                        <a href="/tabela/" class="btn btn-primary">Tabela</a>
+                    </div>
+                    <div class="col-sm text-center">
+                        <a href="/cadastro/" class="btn btn-primary">Cadastro</a>
+                    </div>
+                </div>
             </div>
         </div>
     </form>

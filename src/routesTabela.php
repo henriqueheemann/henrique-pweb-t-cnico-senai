@@ -14,9 +14,9 @@ return function (App $app) {
 
         $conexao = $container->get('pdo');
 
-        $resultSet = $conexao->query('SELECT * FROM carro')->fetchAll();
+        $resultSet = $conexao->query('SELECT * FROM carro, proprietario')->fetchAll();
 
-        $args['textos'] = $resultSet;
+        $args['carros'] = $resultSet;
 
         // Render index view
         return $container->get('renderer')->render($response, 'tabela.phtml', $args);
